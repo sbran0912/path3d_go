@@ -112,7 +112,6 @@ func main() {
 	scene.Cam.Up = lib3d.Vec3{X: 0, Y: 1, Z: 0}
 	scene.Cam.Far = 500
 
-	// --- Wuerfel direkt per (row, col) platzieren ---
 	// Meshes EINMAL erzeugen und wiederverwenden.
 	cubeMesh := lib3d.MakeCubeMesh(cubeSize, cubeSize, cubeSize)
 	gridMesh := lib3d.MakeGridMesh(edgeLength, edgeCells)
@@ -152,7 +151,7 @@ func main() {
 		// Bodengitter (XZ-Ebene bei y=0) aus dem geteilten Mesh.
 		lib3d.DrawMesh(gridMesh, gridStyle)
 
-		// Alle Blockade-Wuerfel in EINEM Instancing-Draw-Call.
+		// Alle Wuerfel in EINEM Instancing-Draw-Call.
 		instances = instances[:0]
 		instances = drawCubes(instances, solver)
 

@@ -22,17 +22,17 @@ type Node struct {
 // Current, Path und Done sind öffentlich, damit der Renderer direkt darauf
 // zugreifen kann – es gibt keinen Step-Zwischenschritt mehr.
 type Solver struct {
-	OpenSet   []Point        // noch offene Punkte (hellblau zeichnen)
-	ClosedSet map[Point]bool // bereits verarbeitete Punkte (rosa zeichnen)
-	Current   Point          // gerade verarbeiteter Punkt (gelb zeichnen)
+	OpenSet   []Point        // noch offene Punkte
+	ClosedSet map[Point]bool // bereits verarbeitete Punkte
+	Current   Point          // gerade verarbeiteter Punkt
 	Path      []Point        // kompletter Endpfad; nil bis das Ziel erreicht ist
 	Done      bool           // Suche abgeschlossen
 
-	walls   map[Point]bool // besetzte Felder (true = Wand)
-	width   int            // Gitterbreite
-	height  int            // Gitterhoehe
-	goal    Point
-	nodes   map[Point]*Node // Suchdaten je Punkt (intern)
+	walls  map[Point]bool // besetzte Felder (true = Wand)
+	width  int            // Gitterbreite
+	height int            // Gitterhoehe
+	goal   Point
+	nodes  map[Point]*Node // Suchdaten je Punkt (intern)
 }
 
 // Die 4 orthogonalen Bewegungsrichtungen
